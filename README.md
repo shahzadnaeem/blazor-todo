@@ -1,5 +1,7 @@
 # Notes
 
+[Build a Blazor todo list app](https://docs.microsoft.com/en-us/aspnet/core/blazor/tutorials/build-a-blazor-app)
+
 ## VSCode Razor Language Server Crashes
 
 ```text
