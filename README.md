@@ -21,3 +21,7 @@ Fix is to do a manual `dotnet build` 🤕 and then go back to `dotnet run watch`
 [Razor Syntax](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor)
 
 Especially `Conditional Attributes` - or use `@( ?: )`
+
+## Links
+
+[Build Web applications with Blazor](https://docs.microsoft.com/en-us/learn/paths/build-web-apps-with-blazor)
