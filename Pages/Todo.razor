@@ -1,42 +1,21 @@
-﻿@page "/todo"
-
-<PageTitle>Todo</PageTitle>
-
-<h1>My Todos</h1>
-
-<input placeholder="What would you like to add?" @bind="inputTodo">
-<button @onclick="AddTodo">Add</button>
-
-<h3>How do they look?</h3>
-<ul>
-    @foreach (var todo in todos)
-    {
-        var theClass = "";
-        if (todo.IsDone) { theClass = "done"; }
-
-        <li>
-            <input type="checkbox" @bind="todo.IsDone" />
-            <input class="@theClass" @bind="todo.Title" />
-        </li>
-    }
-</ul>
-
+<li>
+    <input type="checkbox" @bind="@TodoItem.IsDone" />
+    <input class=@GetDoneClass() @bind="@TodoItem.Title" />
+</li>
 
 @code {
-    private List<TodoItem> todos = new List<TodoItem>
-{
-new TodoItem { Title = "This" },
-new TodoItem { Title = "Did that", IsDone = true }
-};
+    [Parameter]
+    public TodoItem TodoItem { get; set; } = new TodoItem() { Title = "Unknown!", IsDone = false };
 
-    private string? inputTodo;
-
-    private void AddTodo()
+    private string GetDoneClass()
     {
-        if (!string.IsNullOrWhiteSpace(inputTodo))
+        var todoClass = "";
+
+        if (TodoItem.IsDone)
         {
-            todos.Add(new TodoItem { Title = inputTodo, IsDone = false });
-            inputTodo = "";
+            todoClass = "done";
         }
+
+        return todoClass;
     }
 }

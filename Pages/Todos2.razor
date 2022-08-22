@@ -1,0 +1,48 @@
+@page "/todos2"
+
+<PageTitle>Todos (Component Version)</PageTitle>
+
+<h1>My Todos (Component Version)</h1>
+
+
+<input placeholder="What would you like to add?" @bind="inputTodo" @onkeyup="HandleEnter">
+<button @onclick="AddTodo">Add</button>
+
+<h3>How do they look?</h3>
+
+<ul>
+    @foreach (var todo in todos)
+    {
+        // Simple component to render TodoItem
+        <Todo TodoItem=todo />
+    }
+</ul>
+
+@code {
+    private List<TodoItem> todos = new List<TodoItem>
+{
+new TodoItem { Title = "Make dinner" },
+new TodoItem { Title = "Clean bathroom!", IsDone = true }
+};
+
+    private string? inputTodo;
+
+    private void AddTodo()
+    {
+        if (!string.IsNullOrWhiteSpace(inputTodo))
+        {
+            todos.Add(new TodoItem { Title = inputTodo, IsDone = false });
+            inputTodo = "";
+        }
+    }
+
+    private void HandleEnter(KeyboardEventArgs __e)
+    {
+        var val = __e.Key;
+
+        if (val == "Enter")
+        {
+            AddTodo();
+        }
+    }
+}

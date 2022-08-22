@@ -1,0 +1,29 @@
+h1 {
+    color: var(--bs-dark);
+}
+
+h3 {
+    margin-top: 0.75rem;
+    color: var(--bs-dark);
+}
+
+
+ul {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.25rem;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.done {
+    color: var(--bs-gray-400);
+    text-decoration: line-through;
+    border-color: var(--bs-gray-400);
+    pointer-events: none;
+}
+
+li {
+    list-style: none;
+    color: blue;
+}
